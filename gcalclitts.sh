@@ -3,7 +3,7 @@
 #        Contact: nonasuomy.github.io
 #    Description: gcalcli + online google tts + offline pico2wave
 #           Date: 20160411
-#   Dependancies:	[gcalcli] (python2 python2-dateutil python2-gflags python2-google-api-python-client python2-oauth2client1412 
+#   Dependancies: [gcalcli] (python2 python2-dateutil python2-gflags python2-google-api-python-client python2-oauth2client1412 
 #                 python2-parsedatetime python2-vobject) https://aur.archlinux.org/packages/gcalcli/
 #                 svox-pico-bin [pico2wave] (popt sox (sox-dsd-git)) https://aur.archlinux.org/packages/svox-pico-bin/
 #		              (Optional alternative tts engine) espeak (libpulse portaudio) https://www.archlinux.org/packages/community/x86_64/espeak/
