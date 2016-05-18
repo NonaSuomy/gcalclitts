@@ -6,12 +6,12 @@
 #   Dependancies: [gcalcli] (python2 python2-dateutil python2-gflags python2-google-api-python-client python2-oauth2client1412 
 #                 python2-parsedatetime python2-vobject) https://aur.archlinux.org/packages/gcalcli/
 #                 svox-pico-bin [pico2wave] (popt sox (sox-dsd-git)) https://aur.archlinux.org/packages/svox-pico-bin/
-#		              (Optional alternative tts engine) espeak (libpulse portaudio) https://www.archlinux.org/packages/community/x86_64/espeak/
-#		              [mpg123] (alsa-lib libltdl (libtool) libpulse https://www.archlinux.org/packages/extra/x86_64/mpg123/
-#		              vorbis-tools [ogg123] (curl flac libao libvorbis) https://www.archlinux.org/packages/extra/x86_64/vorbis-tools/
-#		              sox [play] (file gsm lame libltdl (libtool) libpng libsndfile opencore-amr wavpack)
-#		              (Optional if you don't want to use sox:play above.) alsa-utils [aplay] 
-#		              iputils [ping] (libcap openssl sysfsutils) https://www.archlinux.org/packages/core/x86_64/iputils/	 
+#                 (Optional alternative tts engine) espeak (libpulse portaudio) https://www.archlinux.org/packages/community/x86_64/espeak/
+#                 [mpg123] (alsa-lib libltdl (libtool) libpulse https://www.archlinux.org/packages/extra/x86_64/mpg123/
+#                 vorbis-tools [ogg123] (curl flac libao libvorbis) https://www.archlinux.org/packages/extra/x86_64/vorbis-tools/
+#                 sox [play] (file gsm lame libltdl (libtool) libpng libsndfile opencore-amr wavpack)
+#                 (Optional if you don't want to use sox:play above.) alsa-utils [aplay] 
+#                 iputils [ping] (libcap openssl sysfsutils) https://www.archlinux.org/packages/core/x86_64/iputils/	 
 
 #Testing options for gcalcli: --nostarted (remove past events) --nocache --cache (use local or online) --refresh list/agenda (Force sync cache.)
 
