@@ -18,7 +18,7 @@ osmc@OSMC001:~$ gcalcli list --noauth_local_webserver
 A link will apear, you will have to open it in your local web browser.  Obtain a verification number, which you will have to enter the code in the console.
 That will authorize gcalcli usage of your Google Calendar.
 
-> **Note:** Make a simple calendar in your Google Calendar that gcalcli can parse some events from.
+> **Note:** *Make a simple calendar in your Google Calendar that gcalcli can parse some events from. It will say what ever you put in the Title not the discription Title: "Hello Family, It's recycling and garbage collection tomorrow"*
 
 Test gcalcli list
 
@@ -48,7 +48,7 @@ Thu Oct 07           Hello family it is Garbage Day Tomorrow
 Fri Oct 08             Hello again. just a reminder it's Garbage Day!
 ```
 
-> **Note:** Make sure to have stuff in your calendar or else you will get "No Events Found...".
+> **Note:** *Make sure to have events in your calendar or else you will get "No Events Found...".*
 
 Install svox-pico (Best free offline TTS so far, it's ported from Android) other wise you can use it's robotic cousin espeak.
 ```sh
@@ -70,7 +70,7 @@ Install some audio players to use with our sample effects and tts audio files.
 ```sh
 osmc@OSMC001:~$ sudo apt-get install mpg123 vorbis-tools sox alsa-utils iputils-ping
 ```
-> **Note:** Make sure to test the players with a sample audio file and ping utils before running the script.
+> **Note:** *Make sure to test the players with a sample audio file and ping utils before running the script.*
 
 Download a pre-notification audible prompt sound effect, it will play this sample sound before it announces your message.
 
@@ -82,7 +82,7 @@ Download sound to folder we made.
 ```sh
 osmc@OSMC001:~$ sudo wget -O /usr/share/sounds/gnome/default/alert/glass.ogg https://github.com/GNOME/gnome-control-center/raw/master/panels/sound/data/sounds/glass.ogg
 ```
-> **Note:** There are some download locations to more sounds in the source of the gcalclitts.sh script.
+> **Note:** *There are some download locations to more sounds in the source of the gcalclitts.sh script.*
 
 Download gcalclitts.sh tts script
 ```sh
@@ -102,7 +102,7 @@ osmc@OSMC001:~$ nano ~/gcalclitts.sh
 # and gcalcli agenda --refresh
 calname="AutomationReminder"
 ```
-> **Note:** There is a few options (Player and different App for TTS Offline) commented out in the code that you can change to your liking.
+> **Note:** *There is a few options (Player and different App for TTS Offline) commented out in the code that you can change to your liking.*
 
 Run the script.
 ```sh
@@ -115,15 +115,30 @@ If everything is working as it should then you should hear..
 ```
 ### Run script with something
 
-Cron job to run the script every night at 10PM.
+Install cron
 ```sh
 osmc@OSMC001:~$ sudo apt-get update
 osmc@OSMC001:~$ sudo apt-get install cron
 ```
-Add cron job.
+Edit cron
 ```sh
-osmc@OSMC001:~$ crontab -l
-0 22 * * * /home/username/gcalclitts.sh
+osmc@OSMC001:~$ crontab -e
+no crontab for osmc - using an empty one
+
+/usr/bin/select-editor: 1: /usr/bin/select-editor: gettext: not found
+ 'select-editor'.
+/usr/bin/select-editor: 1: /usr/bin/select-editor: gettext: not found
+  1. /bin/nano        <---- 
+  2. /usr/bin/mcedit
+
+/usr/bin/select-editor: 32: /usr/bin/select-editor: gettext: not found
+ 1-2 [1]: 1
+crontab: installing new crontab
+```
+Add cron job to run the script every night at 10PM.
+```sh
+osmc@OSMC001:~$ crontab -e
+0 22 * * * /home/osmc/gcalclitts.sh
 ```
 [![N|Solid](http://i.stack.imgur.com/BeXHD.jpg)](http://stackoverflow.com/questions/8938120/how-to-run-cron-once-daily-at-10pm)
 
@@ -131,15 +146,15 @@ osmc@OSMC001:~$ crontab -l
 
 I was getting this error in the console: `ALSA lib pcm.c:2217:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front` which I wanted to be silent.  The information worked below to fix it. Only required to edit alsa.conf the rest of the stuff is just extra information in case I found another issue.
 
-Raspberry PI – Getting Audio Working
+**Raspberry Pi – Getting Audio Working.**
 
 Alsa, Audio, Lame, Mp3, Mpg321, Raspberry Pi, Sound, Wav
  
-How to get the audio working on your Raspberry PI?
+How to get the audio working on your Raspberry Pi.
 
-You have to install three packages:
+Install three packages.
 
-The ALSA utilities:
+ALSA utilities:
 ```sh
 osmc@OSMC001:~$ sudo apt-get install alsa-utils
 ```
@@ -167,27 +182,31 @@ Test the installation:
 ```sh
 osmc@OSMC001:~$ aplay /usr/share/sounds/alsa/Front_Center.wav
 osmc@OSMC001:~$ speaker-test -t sine -f 440 -c 2 -s 1
-osmc@OSMC001:~$ mpg321 “Mannish Boy.mp3”
+osmc@OSMC001:~$ mpg321 “random.mp3”
 ```
-It you get the following error message:
+
+**If you get the following error message:**
 ```sh
 ALSA lib pcm.c:2217:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
 ```
-Edit the file /usr/share/alsa/alsa.conf:
+**Edit the file /usr/share/alsa/alsa.conf:**
 ```sh
 osmc@OSMC001:~$ sudo nano /usr/share/alsa/alsa.conf
 ```
-change the line “pcm.front cards.pcm.front” to “pcm.front cards.pcm.default”
+**Change the line “pcm.front cards.pcm.front” to “pcm.front cards.pcm.default”**
 
-If you are using HDMI and cannot hear any audio at all change the following PI configuration setting:
 
-edit the RasPI configuration file:
+If you are using HDMI and cannot hear any audio at all change the following RPi configuration setting.
+
+Edit the Rasberry Pi configuration file.
 ```sh
 osmc@OSMC001:~$ sudo nano /boot/config.txt
 ```
-uncomment the line:
+Uncomment the line.
+```sh
 hdmi_drive=2
-save the file and reboot the PI
+```
+Save the file and reboot the RPi.
 
 ### Resources
 https://github.com/insanum/gcalcli
